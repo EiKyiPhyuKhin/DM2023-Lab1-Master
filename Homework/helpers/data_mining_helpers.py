@@ -37,3 +37,19 @@ def tokenize_text(text, remove_stopwords=False):
             tokens.append(word)
     return tokens
     
+####Additional fix######
+def format_rows_forHW(docs):
+    
+    sentences = []
+    scores = []
+
+    with open(docs, 'r') as file:
+        for line in file:
+            line = line.strip()  # Remove leading/trailing white spaces
+            parts = line.split('\t')  # Split the line by the tab character
+            if len(parts) == 2:
+                sentence, score = parts
+                sentences.append(sentence)
+                scores.append(score)
+
+    return sentences, scores
